@@ -27,29 +27,16 @@
             </ul>
         </div>
     </nav>
-    <?php
-$connexion='mysql:host=localhost;dbname=disquaire';
-$user="web001";
-$pass="topsecret";
-try{
-    $dbd = new PDO($connexion, $user, $pass);
-    $dbd->query('SET NAMES UTF8');// pour afficher les nom correctement sans erreur d'accent etc.
-
-}catch (PDOException $e){
-    print "Grosse catastrophe!:".$e->getMessage()."<br>";
-    die();
-}
-?>
-    <div class="cardsBlock">
-        <?php
-
-    foreach($dbd->query("SELECT D.image, A.nom, D.album, C.categorie FROM disques D, artistes A, categories C WHERE A.id = D.artiste AND C.id = D.categorie")as $values){
-        echo '<div class="cards"><img src="assets/images/'.$values['image'].'" alt=""><br>'.$values['nom']." est l'interprete de l'album ".$values['album']." et de la categorie ".$values['categorie'].'</div>';
-}?>
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <h1 class="display-4"><b><i>Bienvenu sur le Bateau-Pirate!</i></b></h1>
+            <hr class="my-2">
+            <p><i>Aujourd'hui sur Bateau-Pirate, 631 Cd Promo vous attendent au sein de notre rayon . Et cela, aussi
+                    bien du
+                    côté du neuf que des produits Bateau-Pirate occasion.</i></p>
+            <a class="btn btn-primary btn-warning" href="#" role="button">Reserver un disque!</a>
+        </div>
     </div>
-    <?php
-
-?>
     <footer class="container-fluid lex-footer">
         <div class="row">
             <div class="col text-center">
