@@ -12,6 +12,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top lex-nav">
         <img src="./assets/images/logo3.jpg" height="90px">
         <a class="navbar-brand" href="accueil.php"><b>Accueil</b></a>
@@ -39,12 +40,19 @@ try{
     print "Grosse catastrophe!:".$e->getMessage()."<br>";
     die();
 }
+=======
+<?php
+include "inc/connexion.php";
+>>>>>>> 177a63bee3be8df1a24747e5acc5844621b5431c
 ?>
     <div class="cardsBlock">
         <?php
 
-    foreach($dbd->query("SELECT D.image, A.nom, D.album, C.categorie FROM disques D, artistes A, categories C WHERE A.id = D.artiste AND C.id = D.categorie")as $values){
+    foreach($dbd->query("SELECT D.image, A.nom, D.album, C.categorie FROM disques D, artistes A, categories C WHERE A.id = D.artiste AND C.id = D.categorie ORDER BY D.id DESC LIMIT 0,5 ")as $values){
         echo '<div class="cards"><img src="assets/images/'.$values['image'].'" alt=""><br>'.$values['nom']." est l'interprete de l'album ".$values['album']." et de la categorie ".$values['categorie'].'</div>';
+        echo "<pre>";
+        print_r($values);
+        echo "</pre>";
 }?>
     </div>
     <?php
