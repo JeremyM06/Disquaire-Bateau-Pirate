@@ -2,6 +2,7 @@ body {
     width: 100%;
     background-image: url(../assets/images/background3.jpg);
     background-size: cover;
+    padding-bottom: 0;
 }
 
 .lex-nav {
@@ -17,9 +18,10 @@ body {
     background-image: url(../assets/images/background1.jpg);
     background-size: cover;
     font-size: 50px;
-    margin-top: 70px;
+    margin-top: 50px;
     color: rgb(255, 255, 255);
     border-radius: 120px;
+    height: 500px;
 }
 
 h1 {
@@ -60,21 +62,36 @@ h1 {
 .cards img {
     width: 150px;
 }
+
 /***********STAR NOTE***************/
-.ajaratingblock{
+.ajaratingblock {
     display: flex;
 }
- .ajarating a {
+
+.ajarating a {
     float: right;
     color: #aaa;
     text-decoration: none;
     font-size: 3em;
     transition: color .4s;
- }
- .ajarating a:hover,
- .ajarating a:focus,
- .ajarating a:hover ~ a,
- .ajarating a:focus ~ a {
-    color: orange;
+}
+
+.ajarating a:hover,
+.ajarating a:focus,
+.ajarating a:hover~a,
+.ajarating a:focus~a {
+    color: rgb(221, 150, 17);
     cursor: pointer;
- }
+}
+
+.btn {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    margin-top: 50px;
+}
+
+.lex-form {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 25px;
+}

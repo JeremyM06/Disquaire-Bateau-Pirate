@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -12,32 +12,28 @@
 </head>
 
 <body>
+    <?php
+include "inc/connexion.php";
+?>
+    <div class="cardsBlock">
+        <?php
 
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top lex-nav">
-        <img src="./assets/images/logo3.jpg" height="90px">
-        <a class="navbar-brand" href="index.php"><b>Accueil</b></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.php?page=catalogue"><b>Catalogue</b> <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <main>
-    {{ contenu }}
-    </main>
+    foreach($dbd->query("SELECT D.image, A.nom, D.album, C.categorie FROM disques D, artistes A, categories C WHERE A.id = D.artiste AND C.id = D.categorie ORDER BY D.id DESC LIMIT 0,5 ")as $values){
+        echo '<div class="cards"><img src="assets/images/'.$values['image'].'" alt=""><br>'.$values['nom']." est l'interprete de l'album ".$values['album']." et de la categorie ".$values['categorie'].'</div>';
+        echo "<pre>";
+        print_r($values);
+        echo "</pre>";
+}?>
+    </div>
+    <?php
+
+?>
     <footer class="container-fluid lex-footer">
         <div class="row">
             <div class="col text-center">
                 <b>© Bateau Pirate 2020. All Right Reserved</b>
             </div>
-        </div>   
-    </footer>     
+        </div>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
         </script>
