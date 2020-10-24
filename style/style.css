@@ -2,7 +2,10 @@ body {
     width: 100%;
     background-image: url(../assets/images/background3.jpg);
     background-size: cover;
+    background-position: center;
+    background-color: transparent;
     padding-bottom: 0;
+    
 }
 
 .lex-nav {
@@ -11,35 +14,35 @@ body {
     font-style: italic;
     border-radius: 55px;
     font-size: 40px;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
 .jumbotron {
-    background-image: url(../assets/images/background1.jpg);
+    background-image: url(../assets/images/bateauGM.jpg);
     background-size: cover;
-    font-size: 50px;
+    font-size: 38px;
     margin-top: 50px;
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     border-radius: 120px;
-    height: 500px;
+    height: auto;
 }
-
+.jumbotron p{
+    background-color: rgba(255, 248, 220, 0.548);
+    border-radius: 10px;
+    
+}
 h1 {
-    color: rgb(235, 188, 33);
-}
-
-.lex-footer {
-    background-color: rgb(0, 0, 0);
-    color: rgb(248, 237, 237);
-    font-style: italic;
-    font-size: 22px;
+    color: rgb(247, 192, 15);
+    text-shadow: black 3px 3px 3px; 
+    font-weight: bold;
+    
 }
 
 .navbar-brand {
     font-style: oblique;
     font-size: 40px;
 }
-
+/************CATALOGUE*************/
 .cardsBlock {
     display: flex;
     flex-wrap: wrap;
@@ -58,19 +61,55 @@ h1 {
     margin: 20px;
 
 }
-
+.cards a{
+    text-decoration: none;
+    color: rgb(245, 245, 245);
+    font-weight: bold;
+}
 .cards img {
     width: 150px;
 }
-
+.cards button{
+    background-color: chartreuse;
+    border-radius: 10%;
+    padding: 3px;
+}
+.ajaCateg input{
+    background-color: cyan;
+    border-radius: 10px;
+    width: 9rem;
+}
+/*****************************DESCRIPTIF INDIVIDUEL ALBUM************************************/
+.detailBox h5{
+    margin-bottom: 30px;
+}
+.detailBox{
+    background-color: rgba(248, 215, 107, 0.767);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    font-size: 25px;
+    margin: 20px 0;
+    padding: 15px;
+}
+.detailBoxComment{
+    border: black solid 1px;
+}
+.detailBox form{
+    padding: 20px;
+}
+.description{
+    font-size: 20px;
+    margin-left: 20px;
+}
 /***********STAR NOTE***************/
 .ajaratingblock {
     display: flex;
+    justify-content: center;
 }
 
 .ajarating a {
     float: right;
-    color: #aaa;
+    color: rgb(248, 248, 248);
     text-decoration: none;
     font-size: 3em;
     transition: color .4s;
@@ -80,18 +119,46 @@ h1 {
 .ajarating a:focus,
 .ajarating a:hover~a,
 .ajarating a:focus~a {
-    color: rgb(221, 150, 17);
+    color: rgb(255, 230, 0);
+    text-shadow: rgb(255, 102, 0) 2px 2px 0 ;
     cursor: pointer;
 }
-
+/**********FORMULAIRE*************/
 .btn {
     color: rgb(0, 0, 0);
     font-size: 20px;
     margin-top: 50px;
 }
-
-.lex-form {
-    color: rgb(255, 255, 255);
+.lexform {
+    background-color: rgba(252, 207, 166, 0.767);
+    color: rgb(0, 0, 0);
     text-align: center;
     font-size: 25px;
+    margin: 20px 0;
+    padding: 15px;
+    
+}
+/*FOOTER*/
+.lexfooter {
+    /*position: absolute;   */ 
+    background-color: rgb(0, 0, 0);
+    color: rgb(248, 237, 237);
+    font-style: italic;
+    font-size: 22px;
+}
+
+/*************RESPONSIVE********************/
+
+@media (max-width: 768px){
+    .jumbotron{
+        display: flex;
+        flex-direction: column;
+        font-size: 10px;
+        align-items: center ;
+        justify-content: center;
+        height: auto;
+    }
+    .jumbotron h1{
+        font-size: 20px;
+    }
 }
