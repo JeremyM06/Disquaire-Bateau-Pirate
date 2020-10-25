@@ -5,7 +5,7 @@ $contenu ='
     <div class="jumbotron">
             <div class="row">
             <div class="col">
-                <h1 class="display-4"><b><i>Bienvenue sur le Bateau-Pirate!</i></b></h1>
+                <h1 class="display-3 text-center"><b><i>Bienvenue sur le Bateau-Pirate!</i></b></h1>
                 <hr class="my-2"><br>
                 <p><i>Welcome on board! Une multitude de Cd aux meilleurs prix vous attendent au sein de
                 notre rayon . Et cela, aussi bien du côté du neuf que des produits Bateau-Pirate occasion.</i></p>

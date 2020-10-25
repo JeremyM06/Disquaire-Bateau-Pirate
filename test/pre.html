@@ -30,10 +30,35 @@
         </div>
     </nav>
     <main>
-        <button name="cmd" value="rock">Rock</button>
-        <button name="cmd" value="soul">Soul</button>
-        <button name="cmd" value="rap">Rap</button>
-        <button name="cmd" value="hiphop">Hip-Hop</button>
+        <h1 class="display-4 text-center">Catalogue</h1><br>
+        <div>
+            <h3>Trier par:</h3>
+            <form method="POST">
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label for="nomCo">Nom</label>
+                        <input type="text" name="nomC" id="nomCo">
+                    </div>
+                    <div class="col-sm-6 ">
+                        <label for="com">Votre avis</label>
+                        <input type="text" name="comm" id="com">
+                    </div>
+                </div>
+                <div class="ajaratingblock">
+                    <div class="ajarating">
+
+                        <label for="star"><a href="#5" title="Donner 5 étoiles">☆</a>
+
+                            <a href="#4" title="Donner 4 étoiles" name="star" value="4">☆</a>
+                            <a href="#3" title="Donner 3 étoiles" name="star" value="3">☆</a>
+                            <a href="#2" title="Donner 2 étoiles" name="star" value="2">☆</a>
+                            <a href="#1" title="Donner 1 étoile" name="star" value="1">☆</a>
+
+                    </div>
+                </div>
+                <input class="btn btn-warning" type="submit" value="Envoyer">
+            </form>
+        </div>
     </main>
     <footer class="container-fluid lexfooter">
         <div class="row absolute-bottom">

@@ -5,11 +5,11 @@ foreach($dbd->query("SELECT * FROM disques D WHERE D.id = $_GET[id]")as $values)
     <div class="detailBox">
     <h1>'.$values['album'].'</h1>
 
-        <div class="d-flex justify-content-around align-items-center">
-                <div>
+        <div class="row d-flex justify-content-around align-items-center">
+                <div class="col-sm">
                     <img src="assets/images/'.$values['image'].'" alt="jacquette cd">
                 </div>
-                <div class="align-items-around">
+                <div class="col-sm align-items-around">
                     <h5><u>Descriptif</u></h5>
                     <p class="description"> '.$values['descriptif'].' </p>
                 </div>
@@ -18,17 +18,18 @@ foreach($dbd->query("SELECT * FROM disques D WHERE D.id = $_GET[id]")as $values)
 
         <form method="POST">
             <div class="row">
-                <div class="col-sm-5 offset-1">
+                <div class="col-sm-6">
                     <label for="nomCo">Nom</label>
                     <input type="text" name="nomC" id="nomCo">
                 </div>
-                <div class="col-sm-5 offset-1>
+                <div class="col-sm-6 ">
                     <label for="com">Votre avis</label>
                     <input type="text" name="comm" id="com">
                 </div>
             </div>
             <div class="ajaratingblock">
                 <div class="ajarating">
+                    
                     <a href="#5" title="Donner 5 étoiles" name="star" value="5">☆</a>
                     <a href="#4" title="Donner 4 étoiles" name="star" value="4">☆</a>
                     <a href="#3" title="Donner 3 étoiles" name="star" value="3">☆</a>
