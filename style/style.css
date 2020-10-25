@@ -1,14 +1,15 @@
 body {
-    padding: 0;
+    
     margin: 0;
     width: 100%;
     background: url(../assets/images/background2.jpg) no-repeat;
     background-size: cover;
     background-position: center;
-    background-color: transparent;
-    
+    background-color: transparent;    
 }
-
+#app{
+    margin-bottom: 100px;
+}
 .lex-nav {
     background-color: rgb(0, 0, 0);
     height: 121px;
@@ -17,7 +18,13 @@ body {
     font-size: 40px;
     margin-top: 20px;
 }
-
+li a{
+    color: white;
+    text-decoration: none !important;
+}
+a:hover{
+    color: white;
+}
 .jumbotron {
     background-image: url(../assets/images/bateauGM.jpg);
     background-size: cover;
@@ -98,6 +105,9 @@ h1 {
 .detailBox form{
     padding: 20px;
 }
+.ajaimg{
+    width: 250px;
+}
 .description{
     font-size: 20px;
     margin-left: 20px;
@@ -107,23 +117,24 @@ h1 {
     display: flex;
     justify-content: center;
 }
-
-.ajarating a {
+/*
+.ajarating label {
     float: right;
     color: rgb(248, 248, 248);
     text-decoration: none;
     font-size: 3em;
     transition: color .4s;
+    text-decoration: none;
 }
 
-.ajarating a:hover,
-.ajarating a:focus,
-.ajarating a:hover~a,
-.ajarating a:focus~a {
+.ajarating label:hover,
+.ajarating label:focus,
+.ajarating label:hover~label,
+.ajarating label:focus~label {
     color: rgb(255, 230, 0);
-    text-shadow: rgb(255, 102, 0) 2px 2px 0 ;
+    text-shadow: rgb(255, 102, 0) 4px 4px 0 ;
     cursor: pointer;
-}
+}*/
 /**********FORMULAIRE*************/
 .ajabtn {
     color: rgb(0, 0, 0);
@@ -183,17 +194,47 @@ h1 {
     .jumbotron{
         display: flex;
         flex-direction: column;
-        font-size: 13px;
+        font-size: 16px;
         align-items: center ;
         justify-content: center;
         height: auto;
     }
     .jumbotron h1{
-        text-align: center;
-        color: blueviolet !important;
-        font-size: 10rem;
+        font-size: 2.3rem;
     }
-    .lexform form{
-        margin-bottom: 50px;
+    li {
+        background-color: black;
     }
+    
+}
+/************TEST ETOILE VOTE********/
+
+.rating {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+}
+.rating input {
+opacity: 0;
+position: absolute;
+}
+.rating a,
+.rating label {
+    font-size: 50px;
+    color: rgb(92, 82, 82);
+    text-decoration: none;
+    -webkit-transition: color .4s;
+    -moz-transition: color .4s;
+    -o-transition: color .4s;
+    transition: color .4s;
+}
+.rating label:hover ~ label,
+.rating input:focus ~ label{color: orange;}
+.rating label:hover,
+.rating a:hover,
+.rating a:hover ~ a,
+.rating a:focus,
+.rating a:focus ~ a		{
+    color: orange;
+    cursor: pointer;
 }

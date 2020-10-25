@@ -6,7 +6,7 @@ private $template;
 private $personnalisations;
 
 function __construct(){
-    $this->template = "./template/acceuil.twig";
+    $this->template = "acceuil.twig";
     }
     function __toString(){
         // lire le template

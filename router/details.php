@@ -1,13 +1,27 @@
 <?php
 
+$moyenne=0;
+$i=0;
+foreach($dbd->query("SELECT D.album AS Dalbum, C.album, C.note FROM disques D, comments C WHERE D.id = $_GET[id] AND C.album = $_GET[id]")as $element){
+    $moyenne+= $element['note'];
+    $i++;
+}
+if($moyenne != 0){
+    $moyenne/=$i;
+}else{
+    $moyenne=0;
+}
+
+
+
 foreach($dbd->query("SELECT * FROM disques D WHERE D.id = $_GET[id]")as $values){
     $contenu ='<div class="container">
     <div class="detailBox">
     <h1>'.$values['album'].'</h1>
-
+    <h2 v-if="'.$moyenne.'>0">Note de '.$moyenne.'/5</h2>
         <div class="row d-flex justify-content-around align-items-center">
                 <div class="col-sm">
-                    <img src="assets/images/'.$values['image'].'" alt="jacquette cd">
+                    <img class="ajaimg" src="assets/images/'.$values['image'].'" alt="jacquette cd">
                 </div>
                 <div class="col-sm align-items-around">
                     <h5><u>Descriptif</u></h5>
@@ -28,20 +42,19 @@ foreach($dbd->query("SELECT * FROM disques D WHERE D.id = $_GET[id]")as $values)
                 </div>
             </div>
             <div class="ajaratingblock">
-                <div class="ajarating">
-                    
-                    <a href="#5" title="Donner 5 étoiles" name="star" value="5">☆</a>
-                    <a href="#4" title="Donner 4 étoiles" name="star" value="4">☆</a>
-                    <a href="#3" title="Donner 3 étoiles" name="star" value="3">☆</a>
-                    <a href="#2" title="Donner 2 étoiles" name="star" value="2">☆</a>
-                    <a href="#1" title="Donner 1 étoile" name="star" value="1">☆</a>
+                <div class="rating">
+                    <input name="stars" id="e5" value="5" type="radio"></a><label for="e5">☆</label>
+                    <input name="stars" id="e4" value="4" type="radio"></a><label for="e4">☆</label>
+                    <input name="stars" id="e3" value="3" type="radio"></a><label for="e3">☆</label>
+                    <input name="stars" id="e2" value="2" type="radio"></a><label for="e2">☆</label>
+                    <input name="stars" id="e1" value="1" type="radio"></a><label for="e1">☆</label>
                 </div>
             </div>
             <input class="btn btn-warning" type="submit" value="Envoyer">
         </form>';
-        if(!empty($_POST['comm']) && !empty($_POST['nomC'])){  
+        if(!empty($_POST['comm']) && !empty($_POST['nomC']) && !empty($_POST['stars'])){  
             $comment = addslashes($_POST['comm']);   /*addslashes met en forme pour autoriser l'insertions d'apostrophe dans les commentaires, sinon l'insertion plante*/                   
-            $dbd->query("INSERT INTO `comments`(`commentaire`, `album`,`nomC`) VALUES ('$comment', ".$values['id'].", '$_POST[nomC]')");
+            $dbd->query("INSERT INTO `comments`(`commentaire`, `album`,`nomC`, `note`) VALUES ('$comment', ".$values['id'].", '$_POST[nomC]', '$_POST[stars]')");
             }
 }
 $contenu.='<div class="detailBoxComment">

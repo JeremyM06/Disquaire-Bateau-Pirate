@@ -10,8 +10,8 @@ $contenu ='<div class="container">
 
         <transition name="fondu" class="row">    
         <div class="col-md-6 offset-sm-2 mjjFormValid" v-show="!show">
-          <h2>Vos informations ont bien été envoyées.<br> À très vite<br> 📀💿 😊 💿📀</h2>
-          <button @click="show =! show"  type="button" class="btn btn-primary" >Retour</button>
+          <h2>Votre réservation a bien été enregistrée.<br> À très vite<br> 📀💿 😊 💿📀</h2>
+          <button @click="show =! show"  type="button" class="btn btn-primary">Retour</button>
     
         </div>
         </transition>

@@ -15,10 +15,10 @@ $contenu ='
 </div>
 
 <div class="container-fluid text-center">
-    <h2>Notre dernier arrivage</h2>
+    <h2 class="text-white"><u>Notre dernier arrivage</u></h2>
     <div class="cardsBlock">';
     foreach($dbd->query("SELECT D.image, A.nom, D.id, D.album, C.categorie FROM disques D, artistes A, categories C WHERE A.id = D.artiste AND C.id = D.categorie ORDER BY D.id DESC LIMIT 0,5")as $values){
-        $contenu.= '<div class="cards"><a href="index.php?page=details&id='.$values['id'].'"><img src="assets/images/'.$values['image'].'" alt=""><br>'.$values['album']." <br>Artiste(s):<br> ".$values['nom'].'</a><a href="index.php?page=reserv&id='.$values['id'].'"><button >Reserver</button></a></div>';
+        $contenu.= '<div class="cards"><a href="index.php?page=details&id='.$values['id'].'"><img src="assets/images/'.$values['image'].'" alt=""><br>'.$values['album']." <br><u>Artiste(s):</u><br> ".$values['nom'].'</a><a href="index.php?page=reserv&id='.$values['id'].'"><button >Reserver</button></a></div>';
     }
     
  $contenu.='</div>
