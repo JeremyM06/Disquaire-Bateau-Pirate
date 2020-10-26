@@ -59,9 +59,7 @@ foreach($dbd->query("SELECT * FROM disques D WHERE D.id = $_GET[id]")as $values)
             $comment = addslashes($_POST['comm']);   /*addslashes met en forme pour autoriser l'insertions d'apostrophe dans les commentaires, sinon l'insertion plante*/                   
             $nameC = addslashes($_POST['nomC']);
             $dbd->query("INSERT INTO `comments`(`commentaire`, `album`,`nomC`, `note`) VALUES ('$comment', ".$values['id'].", '$nameC', '$_POST[stars]')");
-            $_POST['comm']="";
-            $_POST['nomC']="";
-            $_POST['stars']="";
+            header('Location: index.php');
             }
 }
 $contenu.='<div class="detailBoxComment">
