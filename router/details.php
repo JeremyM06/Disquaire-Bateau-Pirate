@@ -8,6 +8,7 @@
     }
     if($moyenne != 0){
         $moyenne/=$i;
+        $moyenne = floor($moyenne*100)/100;
     }else{
         $moyenne=0;
     }
