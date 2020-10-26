@@ -1,16 +1,17 @@
 <?php
 
-$moyenne=0;
-$i=0;
-foreach($dbd->query("SELECT D.album AS Dalbum, C.album, C.note FROM disques D, comments C WHERE D.id = $_GET[id] AND C.album = $_GET[id]")as $element){
-    $moyenne+= $element['note'];
-    $i++;
-}
-if($moyenne != 0){
-    $moyenne/=$i;
-}else{
     $moyenne=0;
-}
+    $i=0;
+    foreach($dbd->query("SELECT C.album, C.note FROM comments C WHERE C.album = $_GET[id]")as $element){
+        $moyenne+= $element['note'];
+        $i++;
+    }
+    if($moyenne != 0){
+        $moyenne/=$i;
+    }else{
+        $moyenne=0;
+    }
+    
 
 
 
@@ -41,6 +42,7 @@ foreach($dbd->query("SELECT * FROM disques D WHERE D.id = $_GET[id]")as $values)
                     <input type="text" name="comm" id="com">
                 </div>
             </div>
+            <label>Votre note:</label>
             <div class="ajaratingblock">
                 <div class="rating">
                     <input name="stars" id="e5" value="5" type="radio"></a><label for="e5">☆</label>
@@ -56,6 +58,9 @@ foreach($dbd->query("SELECT * FROM disques D WHERE D.id = $_GET[id]")as $values)
             $comment = addslashes($_POST['comm']);   /*addslashes met en forme pour autoriser l'insertions d'apostrophe dans les commentaires, sinon l'insertion plante*/                   
             $nameC = addslashes($_POST['nomC']);
             $dbd->query("INSERT INTO `comments`(`commentaire`, `album`,`nomC`, `note`) VALUES ('$comment', ".$values['id'].", '$nameC', '$_POST[stars]')");
+            $_POST['comm']="";
+            $_POST['nomC']="";
+            $_POST['stars']="";
             }
 }
 $contenu.='<div class="detailBoxComment">

@@ -220,7 +220,7 @@ position: absolute;
 }
 .rating a,
 .rating label {
-    font-size: 50px;
+    font-size: 60px;
     color: rgb(92, 82, 82);
     text-decoration: none;
     -webkit-transition: color .4s;

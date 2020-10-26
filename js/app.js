@@ -22,7 +22,7 @@ var vm = new Vue({
         },
 
         isAName: function (txt) {
-            if (isNaN(txt) && txt != null) {
+            if (!Number(txt) && txt != null) {
                 this.nameShow = false;
                 this.nameOk = true;
             } else {
@@ -32,7 +32,7 @@ var vm = new Vue({
             this.verifForm();
         },
         isAMail: function (mail) {
-            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail) && mail != "") {
+            if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mail) && mail != null) {
                 this.mailShow = false;
                 this.mailOk = true;
             } else {
