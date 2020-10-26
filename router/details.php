@@ -66,12 +66,12 @@ foreach($dbd->query("SELECT * FROM disques D WHERE D.id = $_GET[id]")as $values)
 $contenu.='<div class="detailBoxComment">
 <h2><u>Ce qu\'en pense la foule:</u></h2><br>
 ';
-foreach($dbd->query("SELECT CO.commentaire, CO.nomC, CO.input_date FROM comments CO WHERE $_GET[id]= CO.album ORDER BY CO.id DESC LIMIT 0,5")as $values){
+foreach($dbd->query("SELECT CO.commentaire, CO.nomC, CO.input_date,DATE_FORMAT(CO.input_date, '%d/%m/%Y à %H:%i') as comm FROM comments CO WHERE $_GET[id]= CO.album ORDER BY CO.id DESC LIMIT 0,5")as $values){
     $contenu.= '
     <div class="d-flex justify-content-around align-items-center border-bottom">
 
             <div class="d-flex flex-column">
-                <p><u>Le '.$values['input_date'].'</u></p>
+                <p><u>Le '.$values['comm'].'</u></p>
                 <p>'.$values['nomC'].' s\'est enjaillé(e) avec un :</p>
             </div>
             <q>'.$values['commentaire'].'</q></div>';
