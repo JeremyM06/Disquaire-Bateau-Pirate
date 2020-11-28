@@ -1,14 +1,17 @@
 <?php
 
-class Page {
+class Page
+{
 
-private $template;
-private $personnalisations;
+    private $template;
+    private $personnalisations;
 
-function __construct(){
-    $this->template = "acceuil.twig";
+    function __construct()
+    {
+        $this->template = "accueil.twig";
     }
-    function __toString(){
+    function __toString()
+    {
         // lire le template
         $contenu = file_get_contents($this->template);
 
@@ -17,12 +20,13 @@ function __construct(){
         }
         return $contenu;
     }
-    function prepare(){
+    function prepare()
+    {
         global $dbd;
-        
-        if(isset($_GET['page'])){
+
+        if (isset($_GET['page'])) {
             $page = $_GET['page'];
-        }else{
+        } else {
             $page = "home";
         }
         include "router/$page.php";
